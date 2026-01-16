@@ -1,3 +1,4 @@
-env
+.env
 Dockerfile
 thems
+.hugo_build.lock
