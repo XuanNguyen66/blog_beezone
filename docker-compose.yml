@@ -1,0 +1,9 @@
+services:
+  web-dev:
+    image: klakegg/hugo:ext-alpine  
+    user: "${UID}:${GID}"
+    volumes:
+      - .:/src                      
+    command: server                 
+    ports:
+      - "1313:1313"
