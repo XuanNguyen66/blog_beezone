@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/"><b>BEEZONE</b></a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/posts/">Blog</a>
+                <a href="/labs/">Labs</a>
+                <a href="/about/">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+    {{ block "main" . }}{{ end }}
+    </main>
+     
+    <footer class="site-footer">
+    <div class="container">
+        <hr>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; 2026 <b>Beezone</b></p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://github.com/username" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>            </div>
+        </div>
+    </div>
+    </footer>
+</body>

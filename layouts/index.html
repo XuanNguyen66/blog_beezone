@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="intro">
+    <h1>Exploring Systems & Infrastructure</h1>
+    <p>
+        Chào bạn, tôi là <b>Aki</b>. Tôi là một kỹ sư tương lai (graduating May 2026) 
+        với đam mê nghiên cứu sâu về <b>Low-level Systems</b>, <b>DevOps</b> và <b>Security</b>. 
+        Beezone là nơi tôi ghi lại hành trình R&D của mình.
+    </p>
+</section>
+
+<section class="post-list">
+    {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+    <article class="post-entry">
+        <header class="entry-header">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        </header>
+
+        <div class="entry-meta">
+            <span>Posted on {{ .Date.Format "2006-01-02" }}</span>
+            {{ with .Params.categories }}
+                in <span class="meta-categories">
+                    {{ range . }}<a href="/categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
+                </span>
+            {{ end }}
+            • {{ .WordCount }} words • {{ .ReadingTime }} minute read
+        </div>
+
+        {{ with .Params.tags }}
+        <div class="entry-tags">
+            Tags: {{ range . }}<a href="/tags/{{ . | urlize }}">{{ . }}</a>, {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="entry-content">
+            <p>{{ .Summary }}</p>
+        </div>
+
+        <footer class="entry-footer">
+            <a class="read-more" href="{{ .Permalink }}">Read more...</a>
+        </footer>
+    </article>
+    {{ end }}
+</section>
+
+{{ end }}

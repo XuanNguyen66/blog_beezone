@@ -1,4 +1,7 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = "hello-friend-ng"
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true       # Hiện số dòng để dễ thảo luận kỹ thuật
+    style = "monokai"    # Hoặc "dracula" cho phong cách chuyên nghiệp
+    noClasses = true

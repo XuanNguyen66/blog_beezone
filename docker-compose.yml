@@ -1,5 +1,5 @@
 services:
-  web-dev:
+  blog:
     image: klakegg/hugo:ext-alpine  
     user: "${UID}:${GID}"
     volumes:
