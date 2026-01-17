@@ -1,11 +1,6 @@
 {{ define "main" }}
 <section class="intro">
-    <h1>Exploring Systems & Infrastructure</h1>
-    <p>
-        Chào bạn, tôi là <b>Aki</b>. Tôi là một kỹ sư tương lai (graduating May 2026) 
-        với đam mê nghiên cứu sâu về <b>Low-level Systems</b>, <b>DevOps</b> và <b>Security</b>. 
-        Beezone là nơi tôi ghi lại hành trình R&D của mình.
-    </p>
+    <h1>Latest Post</h1>
 </section>
 
 <section class="post-list">
@@ -34,10 +29,13 @@
         <div class="entry-content">
             <p>{{ .Summary }}</p>
         </div>
-
+        <dev class="entry-footer">
+<a class="read-more" href="{{ .Permalink }}">Read more...</a>
+        </dev>
+<!-- 
         <footer class="entry-footer">
             <a class="read-more" href="{{ .Permalink }}">Read more...</a>
-        </footer>
+        </footer> -->
     </article>
     {{ end }}
 </section>
