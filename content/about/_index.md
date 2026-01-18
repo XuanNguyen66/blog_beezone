@@ -2,7 +2,6 @@
 title: "About Me"
 layout: "about"
 ---
-
 # IamBee 
 # | System, Security & Infrastructure Learning
 

@@ -4,7 +4,7 @@
 </section>
 
 <section class="post-list">
-    {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+    {{ range first 5 .Site.RegularPages }}
     <article class="post-entry">
         <header class="entry-header">
             <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
@@ -29,13 +29,10 @@
         <div class="entry-content">
             <p>{{ .Summary }}</p>
         </div>
-        <dev class="entry-footer">
-<a class="read-more" href="{{ .Permalink }}">Read more...</a>
-        </dev>
-<!-- 
+
         <footer class="entry-footer">
             <a class="read-more" href="{{ .Permalink }}">Read more...</a>
-        </footer> -->
+        </footer>
     </article>
     {{ end }}
 </section>

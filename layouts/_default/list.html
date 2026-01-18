@@ -1,11 +1,50 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <ul>
-    {{ range .Pages }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <time>{{ .Date.Format "02/01/2006" }}</time>
-      </li>
+<section class="intro container">
+    <h1>{{ .Title }}</h1>
+</section>
+
+<section class="post-list container">
+    {{ $paginator := .Paginate .Data.Pages 5 }}
+
+    {{ range $paginator.Pages }}
+    <article class="post-entry compact">
+        <div class="entry-thumbnail">
+            {{ with .Params.image }}
+                <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+            {{ else }}
+                <div class="placeholder"></div>
+            {{ end }}
+        </div>
+
+        <div class="entry-wrapper">
+            <header class="entry-header">
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            </header>
+            <div class="entry-meta">
+                <time>{{ .Date.Format "2006-01-02" }}</time>
+                • {{ .ReadingTime }} min read
+            </div>
+            <div class="entry-content">
+                <p>{{ .Summary | truncate 150 }}</p>
+            </div>
+        </div>
+    </article>
     {{ end }}
-  </ul>
+</section>
+
+<div class="pagination-wrapper container" style="padding-bottom: 5rem;">
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination">
+        {{ if $paginator.HasPrev }}
+            <a class="prev" href="{{ $paginator.Prev.URL }}" style="text-decoration: none; font-weight: 500; color: black;">← Newer Posts</a>
+        {{ end }}
+        
+        <span class="page-number">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+        
+        {{ if $paginator.HasNext }}
+            <a class="next" href="{{ $paginator.Next.URL }}" style="text-decoration: none; font-weight: 500; color: black;">Older Posts →</a>
+        {{ end }}
+    </nav>
+    {{ end }}
+</div>
 {{ end }}

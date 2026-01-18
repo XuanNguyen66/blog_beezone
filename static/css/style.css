@@ -3,6 +3,14 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Tự động giãn ra để chiếm toàn bộ không gian trống còn lại */
+    width: 100%; /* Đảm bảo nó luôn rộng hết mức có thể */
 }
 
 .container {
@@ -180,8 +188,8 @@ figcaption {
     background-color: #f8f9fa; 
     border-top: 1px solid #e1e4e8;
     padding: 50px 0;
-    margin-top: 80px;
     color: #24292e; 
+    flex-shrink: 0;
 }
 
 .footer-content {
@@ -206,29 +214,4 @@ figcaption {
 .footer-links a:hover {
     color: #0000EE;
     text-decoration: underline;
-}
-
-/* Style cho tiêu đề một dòng */
-.about-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-/* Style cho khung Description */
-.about-description-box {
-    border: 1.5px solid #0000EE; /* Màu xanh đồng bộ với Card của bạn */
-    border-radius: 12px;         /* Bo góc giống card Test */
-    padding: 30px;               /* Khoảng cách chữ với viền */
-    background-color: #ffffff;
-    line-height: 1.8;            /* Giúp đoạn văn thoáng, dễ đọc */
-    color: #333;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bóng đổ nhẹ cho chuyên nghiệp */
-}
-
-/* Tăng độ đậm cho các từ khóa quan trọng */
-.about-description-box b, .about-description-box strong {
-    color: #000;
 }

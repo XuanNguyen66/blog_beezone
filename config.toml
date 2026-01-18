@@ -2,6 +2,7 @@
   [markup.highlight]
     codeFences = true
     guessSyntax = true
-    lineNos = true       # Hiện số dòng để dễ thảo luận kỹ thuật
-    style = "monokai"    # Hoặc "dracula" cho phong cách chuyên nghiệp
+    lineNos = true      
+    style = "monokai"    
     noClasses = true
+    paginate = 5
