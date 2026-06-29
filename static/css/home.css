@@ -1,35 +1,32 @@
+/* ==========================================================================
+   1. RESET & SYSTEM TYPOGRAPHY
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
+    /* Font chữ hệ thống basic, sạch sẽ */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     color: #2b2d42;
     line-height: 1.6;
     background-color: #ffffff;
     
+    /* Đảm bảo Footer luôn nằm ở đáy trang khi ít nội dung */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
 }
 
+/* Khung bọc giới hạn độ rộng nội dung */
 main {
     flex: 1;
     padding: 40px 20px;
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
-}
-
-footer {
-    padding: 20px;
-    text-align: center;
-    font-size: 1rem;
-    color: #090909; 
-    border-top: 1px solid #eceff1;
 }
 
 .container {
@@ -39,6 +36,9 @@ footer {
     padding: 0 20px;
 }
 
+/* ==========================================================================
+   2. HEADER / NAVBAR
+   ========================================================================== */
 .navbar {
     background-color: #f7f5f5;
     border-bottom: 2px solid #eaeaea;
@@ -51,23 +51,29 @@ footer {
     align-items: center;
 }
 
+.logo a {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #333333;
+    text-decoration: none; /* Giữ tên blog không bị gạch chân */
+}
+
 .nav-links {
     display: flex;
     align-items: center;
     gap: 2rem; 
 }
 
-a {
-    color: #333;
+/* Các link điều hướng trên Navbar (như nút Posts) */
+.nav-links a {
+    color: #333333;
     text-decoration: none;
-    transition: color 0.2s ease;
     font-size: 1rem;
 }
 
-.logo a{
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-
+.nav-links a:hover {
+    text-decoration: underline;
 }
 
 .nav-links img {
@@ -76,9 +82,11 @@ a {
     display: block;
     object-fit: contain;
     opacity: 0.8;
-    transition: opacity 0.2s ease;
 }
 
+/* ==========================================================================
+   3. TRANG DANH SÁCH BÀI VIẾT (LIST PAGE / HOME)
+   ========================================================================== */
 .home-posts h2 {
     font-size: 1.6rem;
     color: #2b2d42;
@@ -90,50 +98,111 @@ a {
     padding: 0;
 }
 
-
+/* Khoảng cách thưa giữa các dòng bài viết theo ý bạn */
 .post-list li {
-    margin-bottom: 25px; 
+    margin-bottom: 1rem; 
 }
 
-
+/* Trả link bài viết về màu xanh lam và gạch chân nguyên mẫu của trình duyệt */
 .post-list li a {
-    color: #0066cc; 
+    color: #0000ee; /* Xanh lam nguyên bản */
+    text-decoration: underline; /* Luôn hiện gạch chân */
     font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.2s ease;
+    font-weight: 400;
 }
 
-.post-list li a:hover {
-    text-decoration: underline;
+/* Khi link bài viết đã bấm vào thì chuyển sang màu tím nguyên bản */
+.post-list li a:visited {
+    color: #551a8b;
 }
 
+/* ==========================================================================
+   4. PHÂN TRANG (PAGINATION)
+   ========================================================================== */
 .pagination-wrapper {
-    margin-top: 60px; 
     border-top: 1px solid #eceff1; 
-    padding-top: 30px; 
+    padding-top: 10px; 
 }
 
 .pagination {
     display: flex;
     justify-content: flex-start; 
     align-items: center;
-    gap: 25px; 
+    gap: 20px; 
     font-size: 0.95rem;
 }
-
 
 .pagination .page-number {
     color: #666666;
 }
 
-
+/* Link phân trang Newer/Older dùng màu xanh và gạch chân đồng bộ */
 .pagination a {
-    color: #0066cc; 
-    text-decoration: none;
+    color: #0000ee; 
+    text-decoration: underline;
     font-weight: 600;
 }
 
-.pagination a:hover {
+.pagination a:visited {
+    color: #551a8b;
+}
+
+/* ==========================================================================
+   5. TRANG CHI TIẾT BÀI VIẾT (SINGLE PAGE)
+   ========================================================================== */
+.post-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+/* Tiêu đề bài viết - Đã thêm thuộc tính chống tràn chữ dữ liệu test */
+.post-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000000;
+    
+    /* Ép chuỗi ký tự liền nhau không có khoảng trắng phải tự ngắt dòng */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.post-date {
+    font-size: 0.9rem;
+    color: #666666;
+    display: block;
+    margin-bottom: 40px; 
+}
+
+/* Nội dung bài viết (.Content) - Chống tràn cho text/code block dài */
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #222222;
+    
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.post-content p {
+    margin-bottom: 20px; 
+}
+
+/* Link xuất hiện bên trong bài viết cũng giữ nguyên bản */
+.post-content a {
+    color: #0000ee;
     text-decoration: underline;
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #090909; 
+    border-top: 1px solid #eceff1;
+    margin-top: auto; /* Đẩy xuống đáy khi dùng flex */
 }
