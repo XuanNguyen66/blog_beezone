@@ -78,3 +78,62 @@ a {
     opacity: 0.8;
     transition: opacity 0.2s ease;
 }
+
+.home-posts h2 {
+    font-size: 1.6rem;
+    color: #2b2d42;
+    margin-bottom: 30px; 
+}
+
+.post-list {
+    list-style-type: none; 
+    padding: 0;
+}
+
+
+.post-list li {
+    margin-bottom: 25px; 
+}
+
+
+.post-list li a {
+    color: #0066cc; 
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-list li a:hover {
+    text-decoration: underline;
+}
+
+.pagination-wrapper {
+    margin-top: 60px; 
+    border-top: 1px solid #eceff1; 
+    padding-top: 30px; 
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 25px; 
+    font-size: 0.95rem;
+}
+
+
+.pagination .page-number {
+    color: #666666;
+}
+
+
+.pagination a {
+    color: #0066cc; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
